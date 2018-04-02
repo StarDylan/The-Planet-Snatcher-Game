@@ -26,3 +26,4 @@ print(child.pay)
 
     
 
+#creature encounter

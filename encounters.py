@@ -1,9 +1,16 @@
-
+import random
 class encounters:
 	def __init__(self):
-		pass
+		getJson()
 
-	def creature_enc():
+
+	def getJson(self,jsonFile = "settings.json"):
+		with open(jsonFile,"r") as file:
+			Dictionary = json.load(file)
+			self.StoryData = Dictionary
+
+
+	def creature_enc(self):
 		x = random.randint(1,4)
 		if x == 1:
 			enc1()
@@ -16,32 +23,33 @@ class encounters:
 
 
 
-	def printOptions(list = ["RUN!!! |works - 50%|","Hide \*s","Encounter","Attack \*r","shout"]):
-	#TODO: ADD FILE SUPPORT
-	#{
-	#"Stories":
-	#["INSERT RANDOM STORY","ENCOUNTER",["KILL THE PLAYER","KILL50%","LIVE"]]
-	#"Options":
-	#{
-	#"ENCOUNTER":["RUN!!! |works - 50%|","Hide \*s","Encounter","Attack \*r"]
-	#}
-	#}
+	def printOptions(self,list = ["RUN!!! |works - 50%|","Hide \*s","Encounter","Attack \*r","shout"]):
+
 		alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x"]
 		count = 0
-		insert =
 		for x in list:
-		        if "\*s" in x:
-		            print(alphabet[count]+") " + x.strip("\*s") + " |Works - {}%|".format(character.strength*2))
-				if "\*c" in x:
-					print(alphabet[count]+") " + x.strip("\*r") + " |Works - {}%|".format(character.clever*2) )
-		        else:
-		            print(alphabet[count]+") " + x)
-		        count += 1
+				if "(s)" in x:
+					print(alphabet[count]+") " + x.strip("(s)") + " |Works - {}%|".format(character.strength*2))
+				if "(c)" in x:
+					print(alphabet[count]+") " + x.strip("(c)") + " |Works - {}%|".format(character.clever*2) )
+				else:
+					print(alphabet[count]+") " + x)
+				count += 1
+
+	def doAction(self,actionNumber):
+		execCmd = StoryData["Story"][2][actionNumber]
+		if "PERCENT" in execCmd:
+			percent = execCmd["PERCENT"]
+			if random.randint(1,100) <= percent:
+				print(execCmd["SUCCESS"])
+			else:
+				print(execCmd["FAILED"])
 
 
-	def printStory(number):
-		story =
-		["""
+
+
+	def printStory(self,number):
+		story = ["""
 		While treading through a thick jungle, you meet behind to face with a
 		camouflage rhino. It seems to be slightly disturbed, but not aware of you.
 		What will you do?
@@ -78,7 +86,7 @@ class encounters:
 
 
 
-	def enc1(errorCode = ""):
+	def enc1(self,errorCode = ""):
 
 		if enc1 == 1
 			creature_enc()
@@ -137,37 +145,37 @@ class encounters:
 					move, it charges you and knocks you
 					into a tree. You pass out immediately.
 
-					     	  `::-----------:.
-					       .::-              .::.
-					    `::.                    .:-
-					   ::                         `/.
-					  :-                            -/
-					  +./                           -:-
-					 :- y                          -+ +
-					 o `s                          .o o
-					 o o.                           s o
-					 o/: `..--`                     o.o
+						 	  `::-----------:.
+						   .::-			  .::.
+						`::.					.:-
+					   ::						 `/.
+					  :-							-/
+					  +./						   -:-
+					 :- y						  -+ +
+					 o `s						  .o o
+					 o o.						   s o
+					 o/: `..--`					 o.o
 					 ++.odNNNNmddo` `---.  .-/y++/:``.+
 					 .+:MMMMMMMMMMo ....:`+mMMMMMMMm//.
-					.:-:MMMMMMMMMMN. `    NMMMMMMMMMo/.
+					.:-:MMMMMMMMMMN. `	NMMMMMMMMMo/.
 					o` `dMMMMMMMMmo`+dd/ `NMMMMMMMMm`+`
 					o   .+yhddhs:. /NMMy  -yNMMMMNy. .+
-					:-             mMMMM:   .:+o+:   `+
-					 /.```        oMMMMMd            /`
-					  ..-+-/`     +NNmMNy      `````::
-					  .::+ so      ..`:-      o-++++`
-					  /.   ss`               -N `..+
+					:-			 mMMMM:   .:+o+:   `+
+					 /.```		oMMMMMd			/`
+					  ..-+-/`	 +NNmMNy	  `````::
+					  .::+ so	  ..`:-	  o-++++`
+					  /.   ss`			   -N `..+
 					   -/` +Mms:---:-.-:-.-:sdh  /-
-					     +`.MMm+oy.o.s`s++y+MM: /.
-					      +`+MMMhyosoyoss+NMMo :-
-					      `+ /dy+---...--:oy-  o
-					       :-                `+`
-					        -:--:--------:--::
+						 +`.MMm+oy.o.s`s++y+MM: /.
+						  +`+MMMhyosoyoss+NMMo :-
+						  `+ /dy+---...--:oy-  o
+						   :-				`+`
+							-:--:--------:--::
 					""")
-				    time.sleep(1000000)
+					time.sleep(1000000)
 
 			if response = 'b'
-	            Print_1
+				Print_1
 
 
 

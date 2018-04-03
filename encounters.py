@@ -1,7 +1,7 @@
 import random
 class encounters:
 	def __init__(self):
-		getJson()
+		self.getJson()
 
 
 	def getJson(self,jsonFile = "settings.json"):
@@ -35,20 +35,41 @@ class encounters:
 				else:
 					print(alphabet[count]+") " + x)
 				count += 1
+	def printRandomStory(self):
+		storyID = (random.randint(1,len(self.StoryData["RandomStories"])))-1
+		print(self.StoryData["RandomStories"][storyID]["TEXT"])
+		return StoryID
 
-	def doAction(self,actionNumber):
-		execCmd = StoryData["Story"][2][actionNumber]
-		if "PERCENT" in execCmd:
-			percent = execCmd["PERCENT"]
+	def doAction(self,storyID,actionNumber,Random = True):
+		optionState = "SUCCESS"
+		if Random = True:
+			execData = self.StoryData["RandomStories"][storyID]["OPTIONS"]
+		else:
+			execData = self.StoryData["Stories"][storyID]["OPTIONS"]
+		if "PERCENT" in execData:
+			percent = execData["PERCENT"]
 			if random.randint(1,100) <= percent:
-				print(execCmd["SUCCESS"])
+				pass
+				]
 			else:
-				print(execCmd["FAILED"])
+				optionState = "FAILED"
+		try:
+			for x in execData[optionState]:
+				for i in ["SHOW","BUFF"]
+					try:
+						Command = x[i]
+						exec("self." + i.lower() + "("Command")")
+					except:
+						pass
+		except:
+			pass
 
 
 
 
-	def printStory(self,number):
+
+
+	def printStorys(self,number):
 		story = ["""
 		While treading through a thick jungle, you meet behind to face with a
 		camouflage rhino. It seems to be slightly disturbed, but not aware of you.
@@ -146,9 +167,9 @@ class encounters:
 					into a tree. You pass out immediately.
 
 						 	  `::-----------:.
-						   .::-			  .::.
+						   .::-			     .::.
 						`::.					.:-
-					   ::						 `/.
+					   ::					   	  `/.
 					  :-							-/
 					  +./						   -:-
 					 :- y						  -+ +
@@ -157,14 +178,14 @@ class encounters:
 					 o/: `..--`					 o.o
 					 ++.odNNNNmddo` `---.  .-/y++/:``.+
 					 .+:MMMMMMMMMMo ....:`+mMMMMMMMm//.
-					.:-:MMMMMMMMMMN. `	NMMMMMMMMMo/.
+					.:-:MMMMMMMMMMN. `	  NMMMMMMMMMo/.
 					o` `dMMMMMMMMmo`+dd/ `NMMMMMMMMm`+`
 					o   .+yhddhs:. /NMMy  -yNMMMMNy. .+
-					:-			 mMMMM:   .:+o+:   `+
-					 /.```		oMMMMMd			/`
-					  ..-+-/`	 +NNmMNy	  `````::
-					  .::+ so	  ..`:-	  o-++++`
-					  /.   ss`			   -N `..+
+					:-			   mMMMM:   .:+o+:   `+
+					 /.```		  oMMMMMd			  /`
+					  ..-+-/`	  +NNmMNy	  `````::
+					  .::+ so	  ..`:-	      o-++++`
+					  /.   ss`			    -N `..+
 					   -/` +Mms:---:-.-:-.-:sdh  /-
 						 +`.MMm+oy.o.s`s++y+MM: /.
 						  +`+MMMhyosoyoss+NMMo :-
@@ -176,6 +197,8 @@ class encounters:
 
 			if response = 'b'
 				Print_1
+
+
 
 
 

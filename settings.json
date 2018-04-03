@@ -1,6 +1,29 @@
 {
-	"Stories": ["INSERT RANDOM STORY", "<OPTION ID>", [{"SUCCESS":"Kill","FAILED":"Nothing","PERCENT":43}]],
+	"RandomStories": [{
+		"DATA": "INSERT RANDOM STORY",
+		"ID": " < OPTION ID > ",
+		"OPTIONS": {
+			"SUCCESS": [{"SHOW":"< Insert StoryUID >"}],
+			"FAILED": [{"BUFF":"< Insert BuffID >"}],
+			"PERCENT": 5
+		}
+	}],
+	"Stories": {
+		"< StoryUID >": {
+			"DATA": "INSERT RANDOM STORY",
+			"ID": " < OPTION ID > ",
+			"OPTIONS": {
+				"SUCCESS": [{"SHOW":"< Insert StoryUID >"}],
+				"FAILED": [{"DISPLAY":"< Insert StoryUID >"}],
+				"PERCENT": 5
+			}
+		}
+	},
+
 	"Options": {
-		"ENCOUNTER": ["RUN!!! |works - 50%|", "Hide (s)", "Encounter", "Attack (c)"]
+		"<OPTION ID>": ["Options", "To", "Choose", "From"],
+
+
+		"DisplayItem1": "This is printed when calling DisplayItem1"
 	}
 }

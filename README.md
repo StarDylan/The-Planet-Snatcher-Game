@@ -1,26 +1,30 @@
-# The-Planet-Snatcher-Game
-<<<<<<< HEAD
+
 ## Configuration
-### JSON Structure
+
+Editing the Story
+--------------
+
 
 The json structure is structured like this:
 
-```{
-    "Stories":
-      ["INSERT RANDOM STORY","<OPTION ID>",[{"SUCCESS":"DoSomething","FAILED":"DoSomethingElse","PERCENT":5}}]],
-  "Options":
-      {"<OPTION ID>":["Options","To","Choose","From"]}
-```}     
-=======
-##Configuration
-###JSON Structure
+{
+"RandomStories": [{
+  "TEXT": "INSERT RANDOM STORY",
+  "ID": " < OPTION ID > ",
+  "OPTIONS": [{
+    "SUCCESS": "DoSomething",
+    "FAILED": "DoSomethingElse",
+    "PERCENT": 5
+  }]
+}],
+"Stories": {
+  "DoSomething": "This Happens when RANDOM Story has succeceded!"
+},
 
-The json structure is structured like this:
+"Options": {
+  "<OPTION ID>": ["Options", "To", "Choose", "From"],
 
-  {
-    "Stories":
-        ["INSERT RANDOM STORY","<OPTION ID>",[{"SUCCESS":"DoSomething","FAILED":"DoSomethingElse","PERCENT":5}}]],
-    "Options":
-        {"<OPTION ID>":["Options","To","Choose","From"]}
-  }     
->>>>>>> b9b5d0417abdcdd48054fd45f22a6f9558e4a994
+
+  "DisplayItem1": "This is printed when calling DisplayItem1"
+}
+}

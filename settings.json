@@ -1,0 +1,6 @@
+{
+	"Stories": ["INSERT RANDOM STORY", "<OPTION ID>", [{"SUCCESS":"Kill","FAILED":"Nothing","PERCENT":43}]],
+	"Options": {
+		"ENCOUNTER": ["RUN!!! |works - 50%|", "Hide (s)", "Encounter", "Attack (c)"]
+	}
+}

@@ -1,29 +1,35 @@
 {
-	"RandomStories": [{
-		"DATA": "INSERT RANDOM STORY",
-		"ID": " < OPTION ID > ",
-		"OPTIONS": {
-			"SUCCESS": [{"SHOW":"< Insert StoryUID >"}],
-			"FAILED": [{"BUFF":"< Insert BuffID >"}],
-			"PERCENT": 5
-		}
-	}],
+	"RandomStories": {
+		"Encounters": [{
+			"TEXT": "INSERT RANDOM STORY",
+			"ID": " < OPTION ID > ",
+			"OPTIONS": [{
+				"SUCCESS": "DoSomething",
+				"FAILED": "DoSomethingElse",
+				"PERCENT": 5
+			}]
+		}]
+	},
 	"Stories": {
 		"< StoryUID >": {
 			"DATA": "INSERT RANDOM STORY",
 			"ID": " < OPTION ID > ",
 			"OPTIONS": {
-				"SUCCESS": [{"SHOW":"< Insert StoryUID >"}],
-				"FAILED": [{"DISPLAY":"< Insert StoryUID >"}],
+				"SUCCESS": [{
+					"SHOW": "< Insert StoryUID >"
+				}],
+				"FAILED": [{
+					"DISPLAY": "< Insert TextUID >"
+				}],
 				"PERCENT": 5
 			}
 		}
 	},
 
 	"Options": {
-		"<OPTION ID>": ["Options", "To", "Choose", "From"],
-
-
-		"DisplayItem1": "This is printed when calling DisplayItem1"
+		"<OPTION ID>": ["Options", "To", "Choose", "From"]
+	},
+	"Text": {
+		"<TextUID>": "INSERT_TEXT_HERE"
 	}
 }

@@ -1,68 +1,74 @@
 import random
+import os
+
 class encounters:
 	def __init__(self):
-		self.getJson()
+		pass
 
-
-	def getJson(self,jsonFile = "settings.json"):
+	#Import JsonFile
+	# Dictionary = getJson(fileToReadFrom)
+	def getJson(self,jsonFile):
 		with open(jsonFile,"r") as file:
-			Dictionary = json.load(file)
-			self.StoryData = Dictionary
+			return json.load(file)
+	def randomCatagory(self):
+		listFolders = os.listdir("RandomStories")
+		randomIndex = randint(0,len(listFolders)-1)
+		return listFolders[randomIndex]
+
+	#Start a story line from files.
+	def startRandomStory(self,category):
+		#Find all Files in folder
+	 	fileList = os.listdir("RandomStories\{}".format(category))
+		chosenStory = randint(0,len(fileList)-1)
+
+		getJson("RandomStories\{}\{}".format(category, fileList[chosenStory]))
+
+#pass in randomCatagory() as catagory
+startRandomStory(randomCatagory())
 
 
-	def creature_enc(self):
-		x = random.randint(1,4)
-		if x == 1:
-			enc1()
-		if x == 2:
-			enc2()
-		if x == 3:
-			enc3()
-		if x == 4:
-			enc4()
 
-
-
-	def printOptions(self,list = ["RUN!!! |works - 50%|","Hide \*s","Encounter","Attack \*r","shout"]):
-
-		alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x"]
-		count = 0
-		for x in list:
-				if "(s)" in x:
-					print(alphabet[count]+") " + x.strip("(s)") + " |Works - {}%|".format(character.strength*2))
-				if "(c)" in x:
-					print(alphabet[count]+") " + x.strip("(c)") + " |Works - {}%|".format(character.clever*2) )
-				else:
-					print(alphabet[count]+") " + x)
-				count += 1
-	def printRandomStory(self,group = "Encounters"):
-		storyUID = (random.randint(1,len(self.StoryData["RandomStories"][group])))-1
-		print(self.StoryData["RandomStories"][group][storyUID]["TEXT"])
-		return storyUID
-
-	def doAction(self,storyUID,actionNumber,group,Random = True):
-		optionState = "SUCCESS"
-		if Random == True:
-			execData = self.StoryData["RandomStories"][group][storyUID]["OPTIONS"]
-		else:
-			execData = self.StoryData["Stories"][storyUID]["OPTIONS"]
-		if "PERCENT" in execData:
-			percent = execData["PERCENT"]
-			if random.randint(1,100) <= percent:
-				pass
-
-			else:
-				optionState = "FAILED"
-		try:
-			for x in execData[optionState]:
-				for i in ["SHOW","BUFF"]:
-					try:
-						Command = x[i]
-						exec("self." + i.lower() + "(" + Command + ")")
-					except:
-						pass
-		except:
-			pass
+	#
+	# def printOptions(self,list = ["RUN!!! |works - 50%|","Hide \*s","Encounter","Attack \*r","shout"]):
+	#
+	 #	alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x"]
+	# 	count = 0
+	# 	for x in list:
+	# 			if "(s)" in x:
+	# 				print(alphabet[count]+") " + x.strip("(s)") + " |Works - {}%|".format(character.strength*2))
+	# 			if "(c)" in x:
+	# 				print(alphabet[count]+") " + x.strip("(c)") + " |Works - {}%|".format(character.clever*2) )
+	# 			else:
+	# 				print(alphabet[count]+") " + x)
+	# 			count += 1
+	# def printRandomStory(self,group = "Encounters"):
+	# 	storyUID = (random.randint(1,len(self.StoryData["RandomStories"][group])))-1
+	# 	print(self.StoryData["RandomStories"][group][storyUID]["TEXT"])
+	# 	return storyUID
+	#
+	# def doAction(self,storyUID,actionNumber,group,Random = True):
+	# 	optionState = "SUCCESS"
+	# 	if Random == True:
+	# 		execData = self.StoryData["RandomStories"][group][storyUID]["OPTIONS"]
+	# 	else:
+	# 		execData = self.StoryData["Stories"][storyUID]["OPTIONS"]
+	# 	if "PERCENT" in execData:
+	# 		percent = execData["PERCENT"]
+	# 		if random.randint(1,100) <= percent:
+	# 			pass
+	#
+	# 		else:
+	# 			optionState = "FAILED"
+	# 	try:
+	# 		for x in execData[optionState]:
+	# 			for i in ["SHOW","BUFF"]:
+	# 				try:
+	# 					Command = x[i]
+	# 					exec("self." + i.lower() + "(" + Command + ")")
+	# 				except:
+	# 					pass
+	# 	except:
+	# 		pass
 
 
 

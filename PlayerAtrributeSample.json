@@ -1,0 +1,13 @@
+{
+  "Items": [
+    {
+      "name":"ItemName",
+      "effects":[
+        "+ 1 Strength",
+        "- 1 Strength"
+      ],
+      "id":"demoStaff"
+    }
+  ]
+
+}

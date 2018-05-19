@@ -1,0 +1,12 @@
+{
+  "items":[
+    {
+      "name":"DefaultName",
+      "id":"defaultStaff",
+      "effects":[
+        "+ 1 Strength",
+        "- 1 Strength"
+      ]
+    }
+  ]
+}

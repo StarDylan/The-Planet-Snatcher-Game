@@ -1,0 +1,35 @@
+[
+  {
+    "TEXT": "INSERT RANDOM STORY",
+    "OPTIONS": [
+      {
+        "Option1" :
+          {
+            "SUCCESS": [
+              {"SHOW": "DoSomething"},
+              {"GIVE": "ITEM"}
+            ],
+            "FAILED": [
+              {"SHOW": "DoSomething2"},
+              {"GIVE": "ITEM2"}
+            ],
+            "PERCENT": "strength"
+          }
+      },
+      {
+        "Option2":
+          {
+            "SUCCESS": [
+              {"SHOW": "DoSomething3"},
+              {"GIVE": "ITEM3"}
+            ],
+            "FAILED": [
+              {"SHOW": "DoSomething4"},
+              {"GIVE": "ITEM4"}
+            ],
+            "PERCENT": "wisdom"
+          }
+      }
+    ]
+  }
+]

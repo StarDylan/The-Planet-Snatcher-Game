@@ -36,21 +36,21 @@ class encounters:
 					print(alphabet[count]+") " + x)
 				count += 1
 	def printRandomStory(self,group = "Encounters"):
-		storyID = (random.randint(1,len(self.StoryData["RandomStories"][group])))-1
-		print(self.StoryData["RandomStories"][group][storyID]["TEXT"])
-		return StoryID
+		storyUID = (random.randint(1,len(self.StoryData["RandomStories"][group])))-1
+		print(self.StoryData["RandomStories"][group][storyUID]["TEXT"])
+		return storyUID
 
-	def doAction(self,storyID,actionNumber,group,Random = True):
+	def doAction(self,storyUID,actionNumber,group,Random = True):
 		optionState = "SUCCESS"
 		if Random == True:
-			execData = self.StoryData["RandomStories"][group][storyID]["OPTIONS"]
+			execData = self.StoryData["RandomStories"][group][storyUID]["OPTIONS"]
 		else:
-			execData = self.StoryData["Stories"][storyID]["OPTIONS"]
+			execData = self.StoryData["Stories"][storyUID]["OPTIONS"]
 		if "PERCENT" in execData:
 			percent = execData["PERCENT"]
 			if random.randint(1,100) <= percent:
 				pass
-				
+
 			else:
 				optionState = "FAILED"
 		try:

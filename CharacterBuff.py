@@ -32,18 +32,18 @@ class buff:
 	def status(self):
 		return 'Strength: {}, Wisdom: {}, Hunger: {}, Cleverness: {}'.format(self.strength, self.wisdom, self.hunger, self.clever)
 
-    def clevbuff():
-    	int(self.strength + 10)
+	def clevbuff(self):
+		int(self.strength + 10)
 
-    def clevdebuff():
-    	int(self.strength - 10)
+	def cleverAdd(self,amount):
+		return self.strength = (self.strength + amount)
 
-    def do_attack:
-    	import random
-    	atkv = random.randint(1,50)
-    	if atkv in range(1,24)
-    		atk == 1
-    	if atkv in range(25,self.strength)
-    		atk == 1
-    	if atkv in range(int(self.strength + 1), 51)
-    		atk == 0
+	def do_attack(self,amount):
+		import random
+		atkv = random.randint(1,50)
+		if atkv in range(1,24):
+				atk == 1
+		if atkv in range(25,self.strength):
+				atk == 1
+		if atkv in range(int(self.strength + 1), 51):
+				atk == 0

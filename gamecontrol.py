@@ -1,6 +1,8 @@
 import random
 import os
 
+alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x"]
+
 class encounters:
 	def __init__(self):
 		pass
@@ -21,7 +23,16 @@ class encounters:
 	 	fileList = os.listdir("RandomStories\{}".format(category))
 		chosenStory = randint(0,len(fileList)-1)
 
-		getJson("RandomStories\{}\{}".format(category, fileList[chosenStory]))
+		storyDict = getJson("RandomStories\{}\{}".format(category, fileList[chosenStory]))
+		print(storyDict["TEXT"])
+		for optionIndex in storyDict["OPTIONS"]:
+			option = storyDict["OPTIONS"][optionIndex].keys()[0]
+			print("{}) {}".format(alphabet[optionIndex],option))
+
+
+
+
+
 
 #pass in randomCatagory() as catagory
 startRandomStory(randomCatagory())
@@ -31,7 +42,7 @@ startRandomStory(randomCatagory())
 	#
 	# def printOptions(self,list = ["RUN!!! |works - 50%|","Hide \*s","Encounter","Attack \*r","shout"]):
 	#
-	 #	alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x"]
+	 #
 	# 	count = 0
 	# 	for x in list:
 	# 			if "(s)" in x:

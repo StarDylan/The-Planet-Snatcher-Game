@@ -3,10 +3,14 @@
     {
       "name":"DefaultName",
       "id":"defaultStaff",
+      "use":"testAbility",
       "effects":[
         "+ 1 Strength",
-        "- 1 Strength"
+        "- 1 Strength",
+
       ]
     }
   ]
+
+
 }

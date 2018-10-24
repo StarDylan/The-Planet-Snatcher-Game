@@ -11,5 +11,6 @@ from CharacterBuff import character
 #import Campsite # TODO: Campsite Not needed, keep for story.
 
 player1 = character(0,0,0,0,0)
+player1.thirst()
 
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s',filename='GameLog.log',level=logging.INFO)

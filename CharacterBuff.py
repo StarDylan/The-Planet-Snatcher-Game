@@ -1,7 +1,7 @@
 
-class buff:
+class character:
 
-	def __init__(self, strength, widsom, hunger, clever, thirst):
+	def __init__(self, strength, wisdom, hunger, clever, thirst):
 		self.strength = strength
 		self.wisdom = wisdom
 		self.hunger = hunger
@@ -32,11 +32,6 @@ class buff:
 	def status(self):
 		return 'Strength: {}, Wisdom: {}, Hunger: {}, Cleverness: {}'.format(self.strength, self.wisdom, self.hunger, self.clever)
 
-	def clevbuff(self):
-		int(self.strength + 10)
-
-	def cleverAdd(self,amount):
-		return self.strength = (self.strength + amount)
 
 	def do_attack(self,amount):
 		import random

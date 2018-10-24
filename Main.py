@@ -6,14 +6,10 @@ import logging
 import random
 
 
-import CharacterBuff
-import encounters
-import Campsite # TODO: Campsite Not needed, keep for story.
-import gameMechanics
+from CharacterBuff import character
 
-CharacterBuff = CharacterBuff.buff
-gameMechanics = gameMechanics.gameMechanics
-encounters = encounters.encounters
+#import Campsite # TODO: Campsite Not needed, keep for story.
+
+player1 = character(0,0,0,0,0)
 
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s',filename='GameLog.log',level=logging.INFO)
-character = CharacterBuff.buff(25, 25, 0, 25, 10)

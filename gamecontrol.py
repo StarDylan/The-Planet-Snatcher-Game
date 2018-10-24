@@ -18,6 +18,21 @@ class TestCases:
 class gameController:
     def __init__(self):
         pass
+    def syntaxParse(self, string):
+        try:
+            operator, int, attribute = string.split(" ")
+        except:
+            raise SyntaxError("Invalid Formatting! String: {}".format(string))
+        try:
+            factor = int(int)
+        except ValueError:
+            raise ValueError("Factor is not an Integer! Text: {}".format(int))
+        if attribute not in ["wisdom","strength","cleverness"]:
+            raise SyntaxError("Attribute is not valid! String: {}".format(attribute))
+
+
+
+
 
     #Import JsonFile
     # Dictionary = getJson(fileToReadFrom)
@@ -25,32 +40,65 @@ class gameController:
         with open(jsonFile,"r") as file:
             return json.load(file)
 
+    #Returns Random Category from file system
     def randomCatagory(self):
         listFolders = os.listdir("RandomStories")
         randomIndex = randint(0,len(listFolders)-1)
         return listFolders[randomIndex]
 
-    #Start a story line from files.
+    #Start a random story from files
     def startRandomStory(self,category):
+
+        optionChoices = {}
+
         #Find all Files in folder
         fileList = os.listdir("RandomStories\{}".format(category))
         chosenStory = randint(0,len(fileList)-1)
 
+        #Import Random Story that was chosen
         storyDict = self.getJson("RandomStories\{}\{}".format(category, fileList[chosenStory]))
 
         print(storyDict["TEXT"])
+
         iterNumber = 0
+
         for optionDict in storyDict["OPTIONS"]:
+
+            #Get Option Name
             option = list(optionDict.keys())[0]
+
+            #Map letters with option for later use.
+            optionChoices[alphabet[iterNumber]] = iterNumber + " " + option
+
             print("{}) {}".format(alphabet[iterNumber],option))
             iterNumber += 1
 
 
+        #Asks for User Input and checks if valid
+        while True:
+            response = input(">")
+            if response in optionChoices:
+                break
+            else:
+                print("(Choose an option)")
+
+        int(index), option = optionChoices[response].split(" ")
+
+        paths = storyDict["OPTIONS"][index][option]
+        
 
 
 
-#pass in randomCatagory() as catagory
-gameController().startRandomStory(gameController().randomCatagory())
+
+
+
+
+
+
+
+
+
+
 
 
 
